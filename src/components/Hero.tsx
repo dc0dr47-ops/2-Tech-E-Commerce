@@ -31,19 +31,21 @@ export const Hero: React.FC = () => {
           <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full opacity-25 blur-3xl pointer-events-none" style={{ backgroundColor: slide.accentColor }} />
           <div className="relative z-10 flex items-center justify-between shrink-0 mb-2"><span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 text-[11px] sm:text-xs font-semibold text-white backdrop-blur-md border border-white/10"><Sparkles className="w-3 h-3 text-[#FF6A00]" /><span>{slide.highlightBadge}</span></span><div className="flex items-center gap-1.5">{PROMO_SLIDES.map((_, idx) => <button key={idx} onClick={() => setCurrentSlideIndex(idx)} className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentSlideIndex ? 'w-5 sm:w-6 bg-[#FF6A00]' : 'w-1.5 sm:w-2 bg-neutral-600 hover:bg-neutral-400'}`} aria-label={`Go to slide ${idx + 1}`} />)}</div></div>
 
-          <div className="relative z-10 flex-1 flex min-h-0 py-1 sm:py-2">
+          <div className="relative z-10 flex-1 min-h-0 py-1 sm:py-2">
             <AnimatePresence mode="wait">
-              <motion.div key={slide.id} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(260px,1.1fr)] items-center gap-3 sm:gap-5 lg:gap-6 w-full min-h-0">
-                <div className="min-w-0 flex flex-col justify-center py-1 sm:py-2 lg:py-4">
-                  <span className="text-[10px] sm:text-xs font-bold tracking-[0.16em] uppercase text-[#FF6A00] mb-1.5 sm:mb-2">{slide.tag}</span>
+              <motion.div key={slide.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }} className="grid h-full grid-cols-1 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] items-center gap-4 lg:gap-6">
+                <div className="min-w-0 flex flex-col justify-center py-1 lg:py-3">
+                  <span className="text-[10px] sm:text-xs font-bold tracking-[0.16em] uppercase text-[#FF6A00] mb-1.5">{slide.tag}</span>
                   <h1 className="text-[clamp(1.35rem,3vw,2.2rem)] font-extrabold tracking-tight text-white leading-[1.06] font-['Space_Grotesk'] max-w-[20ch]">{slide.title}</h1>
-                  <p className="text-[11px] sm:text-sm text-neutral-300 leading-relaxed max-w-[43ch] mt-2 sm:mt-3">{slide.description}</p>
-                  <div className="flex flex-wrap items-center gap-2 pt-3 sm:pt-4 lg:pt-5"><button onClick={handleHeroCta} className="px-4 sm:px-5 py-2.5 rounded-xl bg-[#FF6A00] hover:bg-[#E85D00] text-white font-semibold text-xs sm:text-sm transition-all shadow-lg shadow-[#FF6A00]/25 flex items-center justify-center gap-2 cursor-pointer active:scale-95"><span>{slide.ctaText}</span><ArrowRight className="w-3.5 h-3.5" /></button><button onClick={handleDealsCta} className="inline-flex px-3.5 sm:px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm transition-colors backdrop-blur-sm border border-white/10 cursor-pointer">{slide.secondaryCta}</button></div>
+                  <p className="text-[11px] sm:text-sm text-neutral-300 leading-relaxed max-w-[42ch] mt-2.5">{slide.description}</p>
+                  <div className="flex flex-wrap items-center gap-2 pt-4"><button onClick={handleHeroCta} className="px-4 sm:px-5 py-2.5 rounded-xl bg-[#FF6A00] hover:bg-[#E85D00] text-white font-semibold text-xs sm:text-sm transition-all shadow-lg shadow-[#FF6A00]/25 flex items-center justify-center gap-2 cursor-pointer active:scale-95"><span>{slide.ctaText}</span><ArrowRight className="w-3.5 h-3.5" /></button><button onClick={handleDealsCta} className="inline-flex px-3.5 sm:px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm transition-colors backdrop-blur-sm border border-white/10 cursor-pointer">{slide.secondaryCta}</button></div>
                 </div>
 
-                <div className="relative flex h-[clamp(150px,30svh,320px)] lg:h-[clamp(210px,42svh,340px)] min-h-0 items-center justify-center rounded-[1.35rem] overflow-hidden bg-[radial-gradient(circle_at_55%_45%,rgba(255,106,0,0.12),transparent_62%)] border border-white/[0.07] p-2 sm:p-4 lg:p-5">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent pointer-events-none" />
-                  <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="relative z-10 block h-full w-full max-h-full max-w-full object-contain object-center mix-blend-multiply drop-shadow-[0_24px_40px_rgba(0,0,0,0.7)] transition-transform duration-500 hover:scale-[1.015]" />
+                <div className="relative flex min-h-[170px] h-[clamp(170px,34svh,330px)] lg:h-[clamp(220px,43svh,350px)] items-center justify-center rounded-[1.35rem] overflow-hidden border border-white/[0.07] bg-[radial-gradient(circle_at_50%_45%,rgba(255,106,0,0.12),transparent_64%)] px-3 py-4 sm:px-5 sm:py-5 lg:px-7 lg:py-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.055] via-transparent to-transparent pointer-events-none" />
+                  <div className="relative z-10 flex h-full w-full items-center justify-center overflow-hidden">
+                    <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="block h-full w-full object-contain object-center drop-shadow-[0_22px_42px_rgba(0,0,0,0.72)] transition-transform duration-500 hover:scale-[1.02]" />
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
