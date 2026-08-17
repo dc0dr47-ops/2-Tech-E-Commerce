@@ -19,9 +19,24 @@
 ::-webkit-scrollbar-thumb { background: #c7c7c7; border-radius: 9999px; }
 ::-webkit-scrollbar-thumb:hover { background: #a0a0a0; }
 
+/* Wide storefront shell: ~90% viewport width on desktop, capped for very large screens. */
 @media (min-width: 768px) {
   .max-w-7xl {
-    width: 92%;
+    width: 90%;
     max-width: 1800px;
+  }
+}
+
+/* Hero fills remaining viewport instead of creating a clipped lower edge. */
+@media (min-width: 768px) {
+  .hero-viewport {
+    height: clamp(390px, calc(100svh - 8.25rem), 680px);
+    max-height: 680px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-viewport {
+    min-height: 0;
   }
 }
