@@ -11,6 +11,14 @@ export const EditorialBanners: React.FC = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-10">
+      <svg aria-hidden="true" className="absolute h-0 w-0 overflow-hidden">
+        <defs>
+          <filter id="remove-white-editorial" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -1 -1 -1 3 0" />
+          </filter>
+        </defs>
+      </svg>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5">
         <article className="lg:col-span-7 relative min-h-[390px] sm:min-h-[430px] lg:min-h-[500px] overflow-hidden rounded-[28px] border border-white/10 bg-[#08090b] text-white shadow-[0_24px_70px_rgba(0,0,0,0.16)] group">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_38%,rgba(255,106,0,0.20),transparent_28%),radial-gradient(circle_at_70%_18%,rgba(31,111,235,0.18),transparent_30%),linear-gradient(135deg,#08090b_0%,#101216_54%,#15100d_100%)]" />
@@ -34,7 +42,9 @@ export const EditorialBanners: React.FC = () => {
           <article className="relative min-h-[230px] overflow-hidden rounded-[28px] border border-[#2a2b2f] bg-[#18191d] text-white shadow-[0_20px_55px_rgba(0,0,0,0.12)] group">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_45%,rgba(255,193,7,0.13),transparent_30%),linear-gradient(135deg,#151619,#202126)]" />
             <div className="absolute right-0 top-0 h-full w-[52%] bg-gradient-to-l from-black/15 to-transparent" />
-            <div className="absolute right-[5%] top-[12%] flex h-[76%] w-[43%] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035]"><img src={headphonesImage} alt="Sony WH-1000XM5 Studio ANC" className="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105" /></div>
+            <div className="absolute right-[5%] top-[12%] flex h-[76%] w-[43%] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035]">
+              <img src={headphonesImage} alt="Sony WH-1000XM5 Studio ANC" className="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105" style={{ filter: 'url(#remove-white-editorial)' }} />
+            </div>
             <div className="relative z-10 flex h-full max-w-[57%] flex-col justify-center p-6 sm:p-7">
               <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-orange-400">Acoustic Perfection</span>
               <h4 className="mt-2 font-['Space_Grotesk'] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.025em]">Studio ANC Headphones</h4>
@@ -46,7 +56,9 @@ export const EditorialBanners: React.FC = () => {
           <article className="relative min-h-[230px] overflow-hidden rounded-[28px] border border-[#2a2b2f] bg-[#18191d] text-white shadow-[0_20px_55px_rgba(0,0,0,0.12)] group">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_48%,rgba(79,70,229,0.18),transparent_32%),linear-gradient(135deg,#17181c,#202329)]" />
             <div className="absolute right-0 top-0 h-full w-[52%] bg-gradient-to-l from-black/15 to-transparent" />
-            <div className="absolute right-[5%] top-[12%] flex h-[76%] w-[43%] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035]"><img src={laptopImage} alt="MacBook Pro 16 M3 Max" className="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105" /></div>
+            <div className="absolute right-[5%] top-[12%] flex h-[76%] w-[43%] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035]">
+              <img src={laptopImage} alt="MacBook Pro 16 M3 Max" className="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105" style={{ filter: 'url(#remove-white-editorial)' }} />
+            </div>
             <div className="relative z-10 flex h-full max-w-[57%] flex-col justify-center p-6 sm:p-7">
               <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-blue-400">Pro Workstations</span>
               <h4 className="mt-2 font-['Space_Grotesk'] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.025em]">M3 &amp; RTX Ultra Laptops</h4>
