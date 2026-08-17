@@ -3,7 +3,7 @@ export const PRODUCT_IMAGE_OVERRIDES: Record<string, string> = {
   'prod-01': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-naturaltitanium-select?wid=1200&hei=1200&fmt=png-alpha',
   'prod-02': 'https://www.challenger.sg/cdn/shop/files/4548736132603_MeCzoRiO2u6do3E89JcCKhIyCW9aEBOEu9AhjW4r.jpg?v=1754983817',
   'prod-03': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spaceblack-gallery1-202310?wid=1200&hei=1200&fmt=png-alpha',
-  'prod-04': 'https://shop-se.cec.com/image/33955/Apple_Watch_Ultra_2_49mm_Black_Titanium_Ocean_Band_Black_PDP_Image_Position_1__WWEN.jpg',
+  'prod-04': 'https://theapplewiki.com/images/3/3a/Apple_Watch_Ultra_2.png',
   'prod-05': 'https://images.priceoye.pk/samsung-galaxy-s24-ultra-12-256gb-pakistan-priceoye-govw1-500x500.webp',
   'prod-06': 'https://www.firstshop.co.za/cdn/shop/files/90nv00f1-m00220-controllers-1172581414.jpg?v=1749554237&width=1214',
   'prod-07': 'https://cdn1.avstore.ro/qube/get/w739h600/3fd8cc89bfbd859638409fb7a67d59f5',
