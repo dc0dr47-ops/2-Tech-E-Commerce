@@ -1,118 +1,60 @@
 import React from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { ArrowRight, Sparkles, Zap, ShieldCheck } from 'lucide-react';
+import { getProductImage } from '../data/productImages';
 
 export const EditorialBanners: React.FC = () => {
-  const { navigateToCategory, setCurrentRoute, setFilterState } = useCart();
+  const { navigateToCategory } = useCart();
+  const phoneImage = getProductImage('prod-01', '');
+  const headphonesImage = getProductImage('prod-02', '');
+  const laptopImage = getProductImage('prod-03', '');
 
   return (
     <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
-        
-        {/* Large Primary Editorial Block */}
-        <div className="lg:col-span-7 bg-[#0A0A0C] text-white rounded-2xl sm:rounded-3xl overflow-hidden p-6 sm:p-9 lg:p-10 relative flex flex-col justify-between min-h-[340px] sm:min-h-[380px] border border-neutral-800 shadow-2xl group">
-          
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#FF6A00]/15 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Background Imagery / Device Display */}
-          <div className="absolute right-0 bottom-0 top-0 w-1/2 hidden sm:flex items-center justify-end pr-4 pointer-events-none opacity-90 group-hover:scale-105 transition-transform duration-500">
-            <img
-              src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80"
-              alt="Flagship Smartphone"
-              className="max-h-72 object-contain drop-shadow-2xl"
-            />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5">
+        <article className="lg:col-span-7 relative min-h-[390px] sm:min-h-[430px] lg:min-h-[500px] overflow-hidden rounded-[28px] border border-white/10 bg-[#08090b] text-white shadow-[0_24px_70px_rgba(0,0,0,0.16)] group">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_38%,rgba(255,106,0,0.20),transparent_28%),radial-gradient(circle_at_70%_18%,rgba(31,111,235,0.18),transparent_30%),linear-gradient(135deg,#08090b_0%,#101216_54%,#15100d_100%)]" />
+          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
+          <div className="absolute inset-y-0 right-0 w-[56%] bg-gradient-to-l from-black/10 via-black/5 to-transparent" />
+          <div className="absolute right-[7%] top-[10%] h-[68%] w-[43%] rounded-[24px] border border-white/10 bg-white/[0.035] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" />
+          <div className="absolute right-[4%] bottom-[7%] z-10 flex h-[72%] w-[48%] items-end justify-center pointer-events-none">
+            <img src={phoneImage} alt="Titanium Phone 16 Pro Max" className="max-h-full max-w-full object-contain drop-shadow-[0_28px_45px_rgba(0,0,0,0.55)] transition-transform duration-700 ease-out group-hover:scale-[1.04] group-hover:-translate-y-1" />
           </div>
-
-          <div className="relative z-10 max-w-sm">
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FF6A00]/20 text-[#FF6A00] text-[11px] font-bold uppercase tracking-wider mb-3 border border-[#FF6A00]/30">
-              <Sparkles className="w-3 h-3" /> Next-Gen Optics
-            </span>
-
-            <h3 className="text-xl sm:text-3xl font-extrabold font-['Space_Grotesk'] leading-tight text-white">
-              Studio Power in Your Pocket.
-            </h3>
-
-            <p className="text-xs sm:text-sm text-neutral-300 mt-2.5 leading-relaxed">
-              Explore 48MP ProRaw cameras, 5x telephoto periscopes, and 3nm processors built for high-demand creators.
-            </p>
+          <div className="relative z-20 flex h-full min-h-[390px] sm:min-h-[430px] lg:min-h-[500px] flex-col justify-between p-6 sm:p-9 lg:p-10">
+            <div className="max-w-[56%] lg:max-w-[55%]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-400/30 bg-orange-500/10 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.16em] text-orange-300 shadow-[0_0_24px_rgba(255,106,0,0.08)]"><Sparkles className="h-3 w-3" /> Next-Gen Optics</span>
+              <h3 className="mt-5 font-['Space_Grotesk'] text-[clamp(2rem,3.5vw,3.35rem)] font-extrabold leading-[0.98] tracking-[-0.045em] text-white">Studio Power in Your Pocket.</h3>
+              <p className="mt-4 max-w-[31rem] text-sm sm:text-[15px] leading-6 text-white/65">Explore 48MP ProRaw cameras, 5x telephoto periscopes, and 3nm processors built for high-demand creators.</p>
+            </div>
+            <button onClick={() => navigateToCategory('Phones')} className="inline-flex w-fit items-center gap-2 rounded-2xl bg-[#FF6A00] px-5 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_28px_rgba(255,106,0,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#ff7615] hover:shadow-[0_16px_36px_rgba(255,106,0,0.36)] active:translate-y-0">Explore Flagship Phones <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" /></button>
           </div>
+        </article>
 
-          <div className="relative z-10 pt-4 sm:pt-6">
-            <button
-              onClick={() => navigateToCategory('Phones')}
-              className="px-5 py-2.5 sm:py-3 rounded-xl bg-[#FF6A00] hover:bg-[#E85D00] text-white text-xs sm:text-sm font-bold transition-all shadow-lg shadow-[#FF6A00]/25 flex items-center gap-2 cursor-pointer group-hover:gap-3"
-            >
-              <span>Explore Flagship Phones</span>
-              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            </button>
-          </div>
+        <div className="lg:col-span-5 grid grid-rows-2 gap-4 lg:gap-5">
+          <article className="relative min-h-[230px] overflow-hidden rounded-[28px] border border-[#2a2b2f] bg-[#18191d] text-white shadow-[0_20px_55px_rgba(0,0,0,0.12)] group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_45%,rgba(255,193,7,0.13),transparent_30%),linear-gradient(135deg,#151619,#202126)]" />
+            <div className="absolute right-0 top-0 h-full w-[52%] bg-gradient-to-l from-black/15 to-transparent" />
+            <div className="absolute right-[5%] top-[12%] flex h-[76%] w-[43%] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035]"><img src={headphonesImage} alt="Sony WH-1000XM5 Studio ANC" className="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105" /></div>
+            <div className="relative z-10 flex h-full max-w-[57%] flex-col justify-center p-6 sm:p-7">
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-orange-400">Acoustic Perfection</span>
+              <h4 className="mt-2 font-['Space_Grotesk'] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.025em]">Studio ANC Headphones</h4>
+              <p className="mt-2 text-xs sm:text-sm text-white/50">Up to 40h high-res playback</p>
+              <button onClick={() => navigateToCategory('Audio')} className="mt-4 inline-flex w-fit items-center gap-1.5 text-xs font-extrabold text-orange-400 transition-colors hover:text-white">Shop Audio <ArrowRight className="h-3.5 w-3.5" /></button>
+            </div>
+          </article>
+
+          <article className="relative min-h-[230px] overflow-hidden rounded-[28px] border border-[#2a2b2f] bg-[#18191d] text-white shadow-[0_20px_55px_rgba(0,0,0,0.12)] group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_48%,rgba(79,70,229,0.18),transparent_32%),linear-gradient(135deg,#17181c,#202329)]" />
+            <div className="absolute right-0 top-0 h-full w-[52%] bg-gradient-to-l from-black/15 to-transparent" />
+            <div className="absolute right-[5%] top-[12%] flex h-[76%] w-[43%] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035]"><img src={laptopImage} alt="MacBook Pro 16 M3 Max" className="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105" /></div>
+            <div className="relative z-10 flex h-full max-w-[57%] flex-col justify-center p-6 sm:p-7">
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-blue-400">Pro Workstations</span>
+              <h4 className="mt-2 font-['Space_Grotesk'] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.025em]">M3 &amp; RTX Ultra Laptops</h4>
+              <p className="mt-2 text-xs sm:text-sm text-white/50">Engineered for 8K rendering</p>
+              <button onClick={() => navigateToCategory('Laptops')} className="mt-4 inline-flex w-fit items-center gap-1.5 text-xs font-extrabold text-blue-400 transition-colors hover:text-white">Explore Computers <ArrowRight className="h-3.5 w-3.5" /></button>
+            </div>
+          </article>
         </div>
-
-        {/* Right 2 Stacked Editorial Cards */}
-        <div className="lg:col-span-5 flex flex-col gap-4 sm:gap-6">
-          
-          {/* Top Right Card: Studio Audio */}
-          <div className="bg-gradient-to-r from-[#18181A] to-[#222226] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex items-center justify-between border border-neutral-800 shadow-xl overflow-hidden relative group">
-            <div className="max-w-[62%] z-10">
-              <span className="text-[10px] sm:text-[11px] font-bold text-[#FF8A00] uppercase tracking-wider block mb-1">
-                Acoustic Perfection
-              </span>
-              <h4 className="text-base sm:text-lg font-bold font-['Space_Grotesk'] leading-snug">
-                Studio ANC Headphones
-              </h4>
-              <p className="text-xs text-neutral-400 mt-1 line-clamp-1">
-                Up to 40h high-res playback
-              </p>
-              <button
-                onClick={() => navigateToCategory('Audio')}
-                className="mt-3 text-xs font-bold text-[#FF6A00] hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
-              >
-                <span>Shop Audio</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            <div className="w-28 h-28 sm:w-32 sm:h-32 relative flex items-center justify-center shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80"
-                alt="Headphones"
-                className="h-24 sm:h-28 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-xl"
-              />
-            </div>
-          </div>
-
-          {/* Bottom Right Card: High-Performance Laptops */}
-          <div className="bg-gradient-to-r from-[#18181A] to-[#1D2026] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex items-center justify-between border border-neutral-800 shadow-xl overflow-hidden relative group">
-            <div className="max-w-[62%] z-10">
-              <span className="text-[10px] sm:text-[11px] font-bold text-blue-400 uppercase tracking-wider block mb-1">
-                Pro Workstations
-              </span>
-              <h4 className="text-base sm:text-lg font-bold font-['Space_Grotesk'] leading-snug">
-                M3 &amp; RTX Ultra Laptops
-              </h4>
-              <p className="text-xs text-neutral-400 mt-1 line-clamp-1">
-                Engineered for 8K rendering
-              </p>
-              <button
-                onClick={() => navigateToCategory('Laptops')}
-                className="mt-3 text-xs font-bold text-blue-400 hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
-              >
-                <span>Explore Computers</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            <div className="w-28 h-28 sm:w-32 sm:h-32 relative flex items-center justify-center shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80"
-                alt="Laptop"
-                className="h-24 sm:h-28 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-xl"
-              />
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </section>
   );
