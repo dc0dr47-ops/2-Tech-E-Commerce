@@ -1,15 +1,21 @@
-/** Verified model-specific product photography. */
+/** Exact product photography overrides for storefront cards. */
 export const PRODUCT_IMAGE_OVERRIDES: Record<string, string> = {
-  'prod-01': 'https://commons.wikimedia.org/wiki/Special:FilePath/IPhone_16_Pro_Max_White_256g.jpg',
-  'prod-03': 'https://commons.wikimedia.org/wiki/Special:FilePath/M3_Macbook_Pro_14_inch_Space_Grey_model.jpg',
-  'prod-04': 'https://commons.wikimedia.org/wiki/Special:FilePath/Apple_Watch_Ultra_2.jpg',
-  'prod-05': 'https://commons.wikimedia.org/wiki/Special:FilePath/Samsung_Galaxy_S24_Ultra.jpg',
-  'prod-06': 'https://commons.wikimedia.org/wiki/Special:FilePath/Asus_ROG_Ally.jpg',
-  'prod-08': 'https://commons.wikimedia.org/wiki/Special:FilePath/Sony_a7R_V_20230616_162618.jpg',
-  'prod-09': 'https://commons.wikimedia.org/wiki/Special:FilePath/Google_Pixel_9_Pro_(Hazel)_rear.svg',
-  'prod-11': 'https://commons.wikimedia.org/wiki/Special:FilePath/Logitech_MX_Master_3S_HS21.jpg',
-  'prod-12': 'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Dron_DJI_Mini_4_Pro_(21).jpg',
-  'prod-13': 'https://commons.wikimedia.org/wiki/Special:FilePath/AirPods_Pro_2.jpg',
+  'prod-01': 'https://onei.lk/wp-content/uploads/2024/09/66df67c5161271725917125.jpg',
+  'prod-02': 'https://www.challenger.sg/cdn/shop/files/4548736132603_MeCzoRiO2u6do3E89JcCKhIyCW9aEBOEu9AhjW4r.jpg?v=1754983817',
+  'prod-03': 'https://fortresselectronics.co.ke/wp-content/uploads/2024/09/MacBook-Pro.webp',
+  'prod-04': 'https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/184/18470/18470943.jpg',
+  'prod-05': 'https://images.priceoye.pk/samsung-galaxy-s24-ultra-12-256gb-pakistan-priceoye-govw1-500x500.webp',
+  'prod-06': 'https://www.firstshop.co.za/cdn/shop/files/90nv00f1-m00220-controllers-1172581414.jpg?v=1749554237&width=1214',
+  'prod-07': 'https://cdn1.avstore.ro/qube/get/w739h600/3fd8cc89bfbd859638409fb7a67d59f5',
+  'prod-08': 'https://cdn.vjshop.vn/may-anh/mirrorless/sony/sony-a7r-v/sony-a7r-v.jpg',
+  'prod-09': 'https://bbpcdn.pstatic.gr/bpimg18/2maylA/1SEQHS_SX1024Y1024/1723790704/google-pixel-9-pro-5g-128gb.jpg',
+  'prod-10': 'https://nextplay.co.th/wp-content/uploads/2024/05/noteboo-xps16-9640-04.jpg',
+  'prod-11': 'https://img.pccomponentes.com/articles/1057/10579686/1256-logitech-mx-master-3s-para-mac-raton-inalambrico-8000dpi-gris-palido.jpg',
+  'prod-12': 'https://im9.cz/iR/short-tail/977017.jpg',
+  'prod-13': 'https://ennap.com/cdn/shop/files/airpods-pro-2nd-generation-with-magsafe-charging-case-usbc-airpods-pro-2nd-generation-with-magsafe-charging-case-usbc-ennap-com-5.jpg?v=1697852900&width=1946',
+  'prod-14': 'https://fstudio.vtexassets.com/arquivos/ids/946759/61EvdWaI61L._AC_SL1500_.jpg?v=638423883628870000',
+  'prod-15': 'https://www.intelec.co.cr/wp-content/uploads/2024/08/WH-1000XM4B-1000x1000.webp',
+  'prod-16': 'https://bfasset.costco-static.com/U447IH35/as/mbp9pwvs4q3srq64w4pxtvck/1402425-894__1?auto=webp&format=jpg',
 };
 
 export const getProductImage = (productId: string, fallback: string) =>
