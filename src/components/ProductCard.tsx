@@ -39,7 +39,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     return (
       <div className="bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300 hover:shadow-lg transition-all p-4 sm:p-5 flex flex-col sm:flex-row gap-5 group">
         <div className="relative w-full sm:w-56 h-48 bg-[#F7F7F5] rounded-xl overflow-hidden shrink-0 flex items-center justify-center p-3">
-          <img src={image} alt={product.name} className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+          <img src={image} alt={product.name} referrerPolicy="no-referrer" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300" loading="lazy" />
           <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
             {product.discountPercent && <span className="px-2 py-0.5 rounded-md bg-[#FF6A00] text-white text-[11px] font-bold shadow-sm">-{product.discountPercent}%</span>}
             {product.isNewArrival && <span className="px-2 py-0.5 rounded-md bg-neutral-900 text-white text-[11px] font-semibold">NEW</span>}
@@ -82,7 +82,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     <div className="bg-white rounded-xl sm:rounded-2xl border border-neutral-200/90 hover:border-neutral-300 hover:shadow-xl transition-all duration-300 flex flex-col group relative overflow-hidden h-full">
       <div className="relative w-full aspect-square bg-[#F7F7F5] overflow-hidden flex items-center justify-center p-3 sm:p-5">
         <button type="button" onClick={() => openProductDetail(product)} className="absolute inset-0 z-[1] cursor-pointer" aria-label={`View ${product.name}`} />
-        <img src={image} alt={product.name} className="relative z-0 w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300 pointer-events-none" loading="lazy" />
+        <img src={image} alt={product.name} referrerPolicy="no-referrer" className="relative z-0 w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300 pointer-events-none" loading="lazy" />
 
         <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10 pointer-events-none">
           {product.discountPercent && <span className="px-1.5 py-0.5 rounded-md bg-[#FF6A00] text-white text-[10px] sm:text-[11px] font-bold shadow-sm">-{product.discountPercent}%</span>}
