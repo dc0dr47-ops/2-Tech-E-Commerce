@@ -19,27 +19,33 @@ export const Hero: React.FC = () => {
   const slide = PROMO_SLIDES[currentSlideIndex];
 
   const handleHeroCta = () => {
-    setFilterState(prev => ({
-      ...prev,
-      categories: slide.categoryTarget ? [slide.categoryTarget] : [],
-      searchQuery: '',
-    }));
+    setFilterState(prev => ({ ...prev, categories: slide.categoryTarget ? [slide.categoryTarget] : [], searchQuery: '' }));
     setCurrentRoute('shop');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDealsCta = () => {
-    setFilterState(prev => ({
-      ...prev,
-      onSaleOnly: true,
-      searchQuery: '',
-    }));
+    setFilterState(prev => ({ ...prev, onSaleOnly: true, searchQuery: '' }));
     setCurrentRoute('deals');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const featuredProduct = PRODUCTS_DATA.find(p => p.id === 'prod-01');
   const featuredProductImage = featuredProduct ? getProductImage(featuredProduct.id, featuredProduct.imageUrl) : '';
+
+  const HERO_PRODUCT_BY_CATEGORY: Record<string, string> = {
+    Phones: 'prod-01',
+    Laptops: 'prod-03',
+    Audio: 'prod-02',
+    Smartwatch: 'prod-04',
+    Gaming: 'prod-05',
+    Cameras: 'prod-06',
+    Speakers: 'prod-07',
+    Accessories: 'prod-08',
+  };
+  const heroProductId = slide.categoryTarget ? HERO_PRODUCT_BY_CATEGORY[slide.categoryTarget] : undefined;
+  const heroProduct = heroProductId ? PRODUCTS_DATA.find(p => p.id === heroProductId) : undefined;
+  const heroImage = heroProduct ? getProductImage(heroProduct.id, heroProduct.imageUrl) : slide.imageUrl;
 
   return (
     <section className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4">
@@ -76,12 +82,12 @@ export const Hero: React.FC = () => {
 
           <div className="relative z-10 flex-1 flex flex-col justify-center my-auto py-1 sm:py-2 min-h-0">
             <AnimatePresence mode="wait">
-              <motion.div key={slide.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(230px,1.1fr)] items-center gap-3 lg:gap-4 min-h-0 h-full">
+              <motion.div key={slide.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,1.22fr)] items-center gap-3 lg:gap-4 min-h-0 h-full">
                 <div className="min-w-0 flex flex-col justify-center">
                   <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#FF6A00] mb-1">{slide.tag}</span>
                   <h1 className="text-[clamp(1.35rem,3.2vw,2.25rem)] font-extrabold tracking-tight text-white leading-[1.18] font-['Space_Grotesk'] line-clamp-2">{slide.title}</h1>
-                  <div className="lg:hidden my-2 flex items-center justify-center relative h-[clamp(100px,20svh,150px)] rounded-2xl overflow-hidden">
-                    <img src={slide.imageUrl} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="h-full w-full max-h-full max-w-full p-3 object-contain object-center drop-shadow-2xl" />
+                  <div className="lg:hidden my-2 flex items-center justify-center relative h-[clamp(100px,20svh,150px)] rounded-2xl overflow-hidden p-3">
+                    <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="h-full w-full object-contain object-center drop-shadow-2xl" />
                     {slide.startingPrice && <div className="absolute bottom-1 right-2 bg-neutral-900/90 border border-neutral-700 px-2 py-0.5 rounded-md text-[11px] font-bold text-white shadow-md">From <span className="text-[#FF6A00]">{slide.startingPrice}</span></div>}
                   </div>
                   <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed line-clamp-2 sm:line-clamp-3 mt-1 sm:mt-2 max-w-lg">{slide.description}</p>
@@ -91,8 +97,8 @@ export const Hero: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="hidden lg:flex h-full min-h-[190px] max-h-[280px] items-center justify-center rounded-2xl bg-white/[0.025] border border-white/[0.06] overflow-hidden p-4">
-                  <img src={slide.imageUrl} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="block h-auto w-auto max-h-full max-w-full object-contain object-center drop-shadow-[0_24px_40px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.015]" />
+                <div className="hidden lg:flex h-full min-h-[220px] max-h-[330px] items-center justify-center rounded-2xl bg-white/[0.025] border border-white/[0.06] overflow-hidden p-4">
+                  <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="block h-full w-full max-h-full max-w-full object-contain object-center drop-shadow-[0_24px_40px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.02]" />
                 </div>
               </motion.div>
             </AnimatePresence>
