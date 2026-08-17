@@ -80,25 +80,26 @@ export const Hero: React.FC = () => {
             <div className="flex items-center gap-1.5">{PROMO_SLIDES.map((_, idx) => <button key={idx} onClick={() => setCurrentSlideIndex(idx)} className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentSlideIndex ? 'w-5 sm:w-6 bg-[#FF6A00]' : 'w-1.5 sm:w-2 bg-neutral-600 hover:bg-neutral-400'}`} aria-label={`Go to slide ${idx + 1}`} />)}</div>
           </div>
 
-          <div className="relative z-10 flex-1 flex flex-col justify-center my-auto py-1 sm:py-2 min-h-0">
+          <div className="relative z-10 flex-1 flex flex-col justify-center py-2 sm:py-3 min-h-0">
             <AnimatePresence mode="wait">
-              <motion.div key={slide.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,1.22fr)] items-center gap-3 lg:gap-4 min-h-0 h-full">
-                <div className="min-w-0 flex flex-col justify-center">
-                  <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#FF6A00] mb-1">{slide.tag}</span>
-                  <h1 className="text-[clamp(1.35rem,3.2vw,2.25rem)] font-extrabold tracking-tight text-white leading-[1.18] font-['Space_Grotesk'] line-clamp-2">{slide.title}</h1>
-                  <div className="lg:hidden my-2 flex items-center justify-center relative h-[clamp(100px,20svh,150px)] rounded-2xl overflow-hidden p-3">
-                    <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="h-full w-full object-contain object-center drop-shadow-2xl" />
-                    {slide.startingPrice && <div className="absolute bottom-1 right-2 bg-neutral-900/90 border border-neutral-700 px-2 py-0.5 rounded-md text-[11px] font-bold text-white shadow-md">From <span className="text-[#FF6A00]">{slide.startingPrice}</span></div>}
-                  </div>
-                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed line-clamp-2 sm:line-clamp-3 mt-1 sm:mt-2 max-w-lg">{slide.description}</p>
-                  <div className="flex items-center gap-2.5 pt-3 sm:pt-4">
-                    <button onClick={handleHeroCta} className="flex-1 sm:flex-initial px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#FF6A00] hover:bg-[#E85D00] text-white font-semibold text-xs sm:text-sm transition-all shadow-lg shadow-[#FF6A00]/25 flex items-center justify-center gap-2 cursor-pointer active:scale-95"><span>{slide.ctaText}</span><ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" /></button>
-                    <button onClick={handleDealsCta} className="hidden sm:inline-flex px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm transition-colors backdrop-blur-sm border border-white/10 cursor-pointer">{slide.secondaryCta}</button>
+              <motion.div key={slide.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.92fr)_minmax(300px,1.08fr)] items-center gap-5 lg:gap-7 h-full min-h-0">
+                <div className="min-w-0 flex h-full flex-col justify-center py-2 lg:py-4">
+                  <span className="text-[10px] sm:text-xs font-bold tracking-[0.16em] uppercase text-[#FF6A00] mb-2">{slide.tag}</span>
+                  <h1 className="text-[clamp(1.45rem,3.2vw,2.25rem)] font-extrabold tracking-tight text-white leading-[1.1] font-['Space_Grotesk'] max-w-[22ch]">{slide.title}</h1>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed max-w-[46ch] mt-3 sm:mt-4">{slide.description}</p>
+                  <div className="flex flex-wrap items-center gap-2.5 pt-4 sm:pt-5 mt-auto lg:mt-5">
+                    <button onClick={handleHeroCta} className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#FF6A00] hover:bg-[#E85D00] text-white font-semibold text-xs sm:text-sm transition-all shadow-lg shadow-[#FF6A00]/25 flex items-center justify-center gap-2 cursor-pointer active:scale-95"><span>{slide.ctaText}</span><ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" /></button>
+                    <button onClick={handleDealsCta} className="inline-flex px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm transition-colors backdrop-blur-sm border border-white/10 cursor-pointer">{slide.secondaryCta}</button>
                   </div>
                 </div>
 
-                <div className="hidden lg:flex h-full min-h-[220px] max-h-[330px] items-center justify-center rounded-2xl bg-white/[0.025] border border-white/[0.06] overflow-hidden p-4">
-                  <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="block h-full w-full max-h-full max-w-full object-contain object-center drop-shadow-[0_24px_40px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.02]" />
+                <div className="hidden lg:flex relative h-full min-h-[230px] max-h-[340px] items-center justify-center rounded-[1.4rem] overflow-hidden bg-gradient-to-br from-white/[0.055] via-white/[0.02] to-transparent border border-white/[0.07] p-5">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,106,0,0.10),transparent_58%)] pointer-events-none" />
+                  <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="relative z-10 block h-full w-full max-h-full max-w-full object-contain object-center mix-blend-multiply drop-shadow-[0_28px_45px_rgba(0,0,0,0.65)] transition-transform duration-500 hover:scale-[1.025]" />
+                </div>
+
+                <div className="lg:hidden my-2 flex items-center justify-center relative h-[clamp(100px,20svh,150px)] rounded-2xl overflow-hidden p-3">
+                  <img src={heroImage} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="h-full w-full object-contain object-center mix-blend-multiply drop-shadow-2xl" />
                 </div>
               </motion.div>
             </AnimatePresence>
