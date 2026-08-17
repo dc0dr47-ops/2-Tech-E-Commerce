@@ -1,7 +1,7 @@
 /** Exact product photography overrides for storefront cards. */
 export const PRODUCT_IMAGE_OVERRIDES: Record<string, string> = {
   'prod-01': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-naturaltitanium-select?wid=1200&hei=1200&fmt=png-alpha',
-  'prod-02': 'https://www.challenger.sg/cdn/shop/files/4548736132603_MeCzoRiO2u6do3E89JcCKhIyCW9aEBOEu9AhjW4r.jpg?v=1754983817',
+  'prod-02': '/hero/sony-xm5-cutout.svg',
   'prod-03': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spaceblack-gallery1-202310?wid=1200&hei=1200&fmt=png-alpha',
   'prod-04': 'https://theapplewiki.com/images/3/3a/Apple_Watch_Ultra_2.png',
   'prod-05': 'https://images.priceoye.pk/samsung-galaxy-s24-ultra-12-256gb-pakistan-priceoye-govw1-500x500.webp',
