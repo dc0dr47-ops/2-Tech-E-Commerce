@@ -76,12 +76,12 @@ export const Hero: React.FC = () => {
 
           <div className="relative z-10 flex-1 flex flex-col justify-center my-auto py-1 sm:py-2 min-h-0">
             <AnimatePresence mode="wait">
-              <motion.div key={slide.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(180px,0.62fr)] items-center gap-4 lg:gap-6 min-h-0">
+              <motion.div key={slide.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(210px,0.85fr)] items-center gap-3 lg:gap-4 min-h-0 h-full">
                 <div className="min-w-0 flex flex-col justify-center">
                   <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#FF6A00] mb-1">{slide.tag}</span>
                   <h1 className="text-[clamp(1.35rem,3.2vw,2.25rem)] font-extrabold tracking-tight text-white leading-[1.18] font-['Space_Grotesk'] line-clamp-2">{slide.title}</h1>
-                  <div className="lg:hidden my-2 flex items-center justify-center relative h-[clamp(100px,20svh,150px)]">
-                    <img src={slide.imageUrl} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="max-h-full max-w-full object-contain drop-shadow-2xl" />
+                  <div className="lg:hidden my-2 flex items-center justify-center relative h-[clamp(100px,20svh,150px)] rounded-2xl overflow-hidden">
+                    <img src={slide.imageUrl} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="h-full w-full object-contain drop-shadow-2xl" />
                     {slide.startingPrice && <div className="absolute bottom-1 right-2 bg-neutral-900/90 border border-neutral-700 px-2 py-0.5 rounded-md text-[11px] font-bold text-white shadow-md">From <span className="text-[#FF6A00]">{slide.startingPrice}</span></div>}
                   </div>
                   <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed line-clamp-2 sm:line-clamp-3 mt-1 sm:mt-2 max-w-lg">{slide.description}</p>
@@ -91,8 +91,8 @@ export const Hero: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="hidden lg:flex h-full min-h-[170px] max-h-[250px] items-center justify-center rounded-2xl bg-white/[0.025] border border-white/[0.06] overflow-hidden">
-                  <img src={slide.imageUrl} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="max-h-[88%] max-w-[92%] w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:scale-[1.03]" />
+                <div className="hidden lg:flex h-full min-h-[190px] max-h-[280px] items-center justify-center rounded-2xl bg-white/[0.025] border border-white/[0.06] overflow-hidden p-1.5">
+                  <img src={slide.imageUrl} alt={slide.featuredProduct || slide.title} loading="eager" decoding="async" className="block h-full w-full max-h-full max-w-full object-contain object-center drop-shadow-[0_24px_40px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-[1.025]" />
                 </div>
               </motion.div>
             </AnimatePresence>
