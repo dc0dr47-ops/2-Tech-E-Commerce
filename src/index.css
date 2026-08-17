@@ -55,3 +55,23 @@
     min-height: 0;
   }
 }
+
+/* Image performance: let browser decode off-main-thread and avoid rendering work for lazy assets until needed. */
+img[loading="lazy"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 320px 320px;
+}
+
+img {
+  display: block;
+}
+
+/* Keep animated product hover transforms cheap and isolated. */
+.group img {
+  backface-visibility: hidden;
+}
+
+/* Avoid accidental horizontal layout work from oversized remote images. */
+img {
+  max-width: 100%;
+}
