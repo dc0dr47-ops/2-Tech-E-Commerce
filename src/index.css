@@ -19,7 +19,7 @@
 ::-webkit-scrollbar-thumb { background: #c7c7c7; border-radius: 9999px; }
 ::-webkit-scrollbar-thumb:hover { background: #a0a0a0; }
 
-/* Wide storefront shell: ~90% viewport width on desktop, capped for very large screens. */
+/* Wide storefront shell: use most available desktop width, without giant side gutters. */
 @media (min-width: 768px) {
   .max-w-7xl {
     width: 90%;
@@ -27,11 +27,26 @@
   }
 }
 
-/* Hero fills remaining viewport instead of creating a clipped lower edge. */
+/*
+ * Hero viewport lock.
+ * Desktop header + hero section padding consume roughly 10rem.
+ * Reserve that space so hero cards end inside viewport instead of being clipped.
+ * 680px cap prevents huge screens from producing an oversized hero.
+ */
 @media (min-width: 768px) {
   .hero-viewport {
-    height: clamp(390px, calc(100svh - 8.25rem), 680px);
-    max-height: 680px;
+    height: clamp(390px, calc(100svh - 10rem), 680px);
+    max-height: calc(100svh - 10rem);
+    min-height: 390px;
+  }
+}
+
+/* Extra-short desktop/tablet screens: shrink hero below normal minimum rather than overflow viewport. */
+@media (min-width: 768px) and (max-height: 700px) {
+  .hero-viewport {
+    height: calc(100svh - 10rem);
+    min-height: 0;
+    max-height: calc(100svh - 10rem);
   }
 }
 
